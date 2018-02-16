@@ -1,4 +1,4 @@
-# Angular4App
+# Basic Angular4 Application with TypeScript
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
