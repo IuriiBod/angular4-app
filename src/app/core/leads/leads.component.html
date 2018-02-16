@@ -1,0 +1,34 @@
+<div class="leads-container">
+  <div class="row">
+    <div class="col">
+      <input (keyup)="onSearch($event)">
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let lead of pageLeads">
+          <td>{{ lead.full_name }}</td>
+          <td>{{ lead.email }}</td>
+          <td>{{ lead.phone }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <ul class="pagination float-right">
+        <li class="page-item"><a class="page-link" (click)="onPreviousPage()">Previous</a></li>
+        <li class="page-item"><a class="page-link"
+           *ngFor="let page of pages;"
+           (click)="onSelectPage(page)">{{ page }}</a></li>
+        <li class="page-item"><a class="page-link" (click)="onNextPage()">Next</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

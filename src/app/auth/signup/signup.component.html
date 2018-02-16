@@ -1,0 +1,66 @@
+<div class="text-center">
+  <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal">Registration</h1>
+
+    <label for="full_name" class="sr-only">Full Name:</label>
+    <input id="full_name" class="form-control" formControlName="full_name"
+           placeholder="full name" required >
+    <div *ngIf="full_name.invalid && (full_name.dirty || full_name.touched)" class="alert alert-danger">
+      <div *ngIf="full_name.errors.required">
+        Name is required.
+      </div>
+      <div *ngIf="full_name.errors.minlength">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+
+
+    <label for="phone" class="sr-only">Phone Number:</label>
+    <input id="phone" class="form-control" formControlName="phone"
+           placeholder="phone" required >
+    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+      <div *ngIf="phone.errors.required">
+        Phone number is required.
+      </div>
+      <div *ngIf="phone.errors.pattern">
+        Phone number must be enterd in correct format.
+      </div>
+    </div>
+
+
+    <label for="email" class="sr-only">Email:</label>
+    <input id="email" class="form-control" formControlName="email"
+           placeholder="email" required >
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+      <div *ngIf="email.errors.required">
+        Email is required.
+      </div>
+      <div *ngIf="email.errors.pattern">
+        Email must be enterd in correct format.
+      </div>
+    </div>
+
+
+    <label for="password" class="sr-only">Password:</label>
+    <input id="password" class="form-control" formControlName="password"
+           placeholder="password" required >
+    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required">
+        Password is required.
+      </div>
+      <div *ngIf="password.errors.minlength">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+
+
+    <label for="template" class="sr-only">Template:</label>
+    <select id="template" class="form-control" formControlName="template" required >
+      <option *ngFor="let template of templates" [value]="template">{{template}}</option>
+    </select>
+
+
+    <button type="submit" [disabled]="signUpForm.invalid || loading" class="btn btn-lg btn-primary btn-block">Create account</button>
+    <a [routerLink]="['/signin']"><p class="small">Back to Login Page</p></a>
+  </form>
+</div>

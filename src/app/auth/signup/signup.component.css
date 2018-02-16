@@ -1,0 +1,11 @@
+.form {
+  width: 400px;
+}
+
+.form select {
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
